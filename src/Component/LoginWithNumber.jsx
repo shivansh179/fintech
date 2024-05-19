@@ -32,8 +32,6 @@ const PhoneNumberVerification = () => {
 
             }
       
-
-      
     }, auth);
 
 
