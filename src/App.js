@@ -19,9 +19,9 @@ function App() {
           <Route path="/verify" element={
           <PrivateRoute><Verify /></PrivateRoute>} />
           <Route path="/signup" element={
-          <PrivateRoute><Signup /></PrivateRoute>} />
+          <Signup />} />
           <Route path="/phone_login" element={
-          <PrivateRoute><LoginWithNumber /></PrivateRoute>} />
+          <LoginWithNumber />} />
           <Route path="/final" element={
           <PrivateRoute><Final /></PrivateRoute>} />
         </Routes> 
