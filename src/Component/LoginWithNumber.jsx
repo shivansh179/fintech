@@ -24,15 +24,12 @@ const PhoneNumberVerification = () => {
 
    
     const recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
-      
-     
+       
       size: 'invisible',
       callback: () => {
         console.log('reCAPTCHA verification successful');
 
             }
-      
-
       
     }, auth);
 
