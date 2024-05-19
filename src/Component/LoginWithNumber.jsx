@@ -62,7 +62,7 @@ const PhoneNumberVerification = () => {
         const user = result.user;
         console.log('User signed in successfully:', user);
         toast.success('OTP verified');
-        navigate('/Aqi', { state: { username } });
+        navigate('/first', { state: { username } });
       })
       .catch((error) => {
         console.error('Error verifying OTP:', error);
