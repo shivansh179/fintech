@@ -3,7 +3,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import app from '../firebase';
- 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Signup = () => {
     const auth = getAuth(app);
     const db = getFirestore(app);
@@ -18,6 +20,10 @@ const Signup = () => {
 
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            toast.success("You are Registered")
+            setTimeout(function(){
+                navigate("/")
+            },2000)
             const user = userCredential.user;
             console.log(user);
 
@@ -31,8 +37,9 @@ const Signup = () => {
              
              
 
-            navigate("/login");
+           
         } catch (error) {
+            toast.error(error.code);
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage);
@@ -41,6 +48,7 @@ const Signup = () => {
 
     return (
         <main className="flex flex-col items-center justify-center w-screen h-screen bg-amber-600">
+           <ToastContainer/>
             <section className="flex flex-col items-center justify-center bg-white p-8 rounded-lg shadow-lg">
                 <h1 className="text-4xl font-bold mb-6 text-amber-600">Get Registered with FinTech</h1>
                 <h1 className="text-2xl font-bold mb-6 text-amber-600">Enter you details below</h1>
