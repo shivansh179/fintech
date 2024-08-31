@@ -3,8 +3,6 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import app from '../firebase';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
     const auth = getAuth(app);
@@ -14,16 +12,12 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [number, setNumber] = useState('');
     const [name, setName] = useState('');
-    
+
     const onSubmit = async (e) => {
         e.preventDefault();
 
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            toast.success("You are Registered")
-            setTimeout(function(){
-                navigate("/")
-            },2000)
             const user = userCredential.user;
             console.log(user);
 
@@ -34,12 +28,9 @@ const Signup = () => {
                 number,
                 uid: user.uid
             });
-             
-             
 
-           
+            navigate("/");
         } catch (error) {
-            toast.error(error.code);
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage);
@@ -47,71 +38,79 @@ const Signup = () => {
     };
 
     return (
-        <main className="flex flex-col items-center justify-center w-screen h-screen bg-amber-600">
-           <ToastContainer/>
-            <section className="flex flex-col items-center justify-center bg-white p-8 rounded-lg shadow-lg">
-                <h1 className="text-4xl font-bold mb-6 text-amber-600">Get Registered with FinTech</h1>
-                <h1 className="text-2xl font-bold mb-6 text-amber-600">Enter you details below</h1>
-                <form className="flex flex-col w-80 space-y-4" onSubmit={onSubmit}>
+        <main
+            className="flex flex-col items-center p-10 justify-center w-screen md:h-screen bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('/security.jpg')` }} // Replace with your image URL
+        >
+            <section className="flex flex-col items-center  justify-center bg-cover backdrop-blur-lg  bg-blue-200 bg-opacity-90 p-6 rounded-lg shadow-lg">
+                <h1 className="text-2xl text-blue-900 text-center md:text-4xl lg:text-4xl font-bold mb-6">Air Pollution Analyzer  Sign Up</h1>
+                <form className="flex flex-col w-64 space-y-4" onSubmit={onSubmit}>
                     <div className="flex flex-col">
-                        <label htmlFor="name" className="font-bold text-xl text-gray-700">Name</label>
+                        <label htmlFor="name" className="font-bold text-blue-900 text-xl">Name</label>
                         <input
-                            type="text"
                             id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            name="name"
+                            type="text"
                             required
                             placeholder="Enter Name"
-                            className="mt-2 p-3 border border-gray-300 rounded-md focus:ring focus:ring-amber-400 focus:outline-none"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="mt-2 p-2 border border-gray-300 font-mono font-bold rounded"
                         />
-                        
                     </div>
+
                     <div className="flex flex-col">
-                        <label htmlFor="email-address" className="font-bold text-xl text-gray-700">Email address</label>
+                        <label htmlFor="email-address" className="font-bold text-blue-900 text-xl">Email address</label>
                         <input
-                            type="email"
                             id="email-address"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            name="email"
+                            type="email"
                             required
                             placeholder="Email address"
-                            className="mt-2 p-3 border border-gray-300 rounded-md focus:ring focus:ring-amber-400 focus:outline-none"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="mt-2 p-2 border border-gray-300 font-mono font-bold rounded"
                         />
                     </div>
+
                     <div className="flex flex-col">
-                        <label htmlFor="password" className="font-bold text-xl text-gray-700">Password</label>
+                        <label htmlFor="password" className="font-bold text-blue-900 text-xl">Password</label>
                         <input
-                            type="password"
                             id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            name="password"
+                            type="password"
                             required
                             placeholder="Password"
-                            className="mt-2 p-3 border border-gray-300 rounded-md focus:ring focus:ring-amber-400 focus:outline-none"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="mt-2 p-2 border border-gray-300 font-mono font-bold rounded"
                         />
                     </div>
+
                     <div className="flex flex-col">
-                        <label htmlFor="number" className="font-bold text-xl text-gray-700">Phone Number</label>
+                        <label htmlFor="number" className="font-bold text-blue-900 text-xl">Phone Number</label>
                         <input
-                            type="tel"
                             id="number"
-                            value={number}
-                            onChange={(e) => setNumber(e.target.value)}
+                            name="number"
+                            type="tel"
                             required
                             placeholder="Phone Number"
-                            className="mt-2 p-3 border border-gray-300 rounded-md focus:ring focus:ring-amber-400 focus:outline-none"
+                            value={number}
+                            onChange={(e) => setNumber(e.target.value)}
+                            className="mt-2 p-2 border border-gray-300 font-mono font-bold  rounded"
                         />
                     </div>
+
                     <button
                         type="submit"
-                        className="mt-4 bg-amber-600 text-white py-3 rounded-md hover:bg-amber-700 transition"
+                        className="mt-4 bg-blue-900   text-white py-2 rounded hover:bg-blue-700 transition"
                     >
                         Sign up
                     </button>
                 </form>
-                <p className="text-sm text-gray-700 mt-4">
+                <p className="text-sm text-black mt-4">
                     Already have an account?{' '}
-                    <NavLink to="/" className="text-amber-600 hover:underline">
+                    <NavLink to="/" className="text-blue-600 hover:underline">
                         Sign in
                     </NavLink>
                 </p>

@@ -15,8 +15,8 @@ const First = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-      <h1 className="text-4xl font-bold mb-8">Making Transaction Easy</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen p-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+      <h1 className="md:text-4xl lg:text-4xl text-3xl text-center font-bold mb-8">Making Transaction Easy</h1>
       <img src={logo} alt="Logo" className="w-48 h-48 object-contain mb-8" />
       <button 
         onClick={direct} 
