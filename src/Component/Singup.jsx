@@ -43,7 +43,7 @@ const Signup = () => {
             style={{ backgroundImage: `url('/security.jpg')` }} // Replace with your image URL
         >
             <section className="flex flex-col items-center  justify-center bg-cover backdrop-blur-lg  bg-blue-200 bg-opacity-90 p-6 rounded-lg shadow-lg">
-                <h1 className="text-2xl text-blue-900 text-center md:text-4xl lg:text-4xl font-bold mb-6">Air Pollution Analyzer  Sign Up</h1>
+                <h1 className="text-2xl text-blue-900 text-center md:text-4xl lg:text-4xl font-bold mb-6">Fintech Sign Up</h1>
                 <form className="flex flex-col w-64 space-y-4" onSubmit={onSubmit}>
                     <div className="flex flex-col">
                         <label htmlFor="name" className="font-bold text-blue-900 text-xl">Name</label>

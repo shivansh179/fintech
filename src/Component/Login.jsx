@@ -37,7 +37,7 @@ const Login = () => {
                 >
                     <ToastContainer />
                     <section className="flex flex-col items-center justify-center bg-cover backdrop-blur-lg  bg-blue-200 bg-opacity-90 p-6 rounded-lg shadow-lg">
-                        <h1 className="text-2xl text-blue-900 md:text-4xl lg:text-4xl font-bold mb-6">Air Pollution Analyzer</h1>
+                        <h1 className="text-2xl text-blue-900 md:text-4xl lg:text-4xl font-bold mb-6">Fintech</h1>
                         <form className="flex flex-col w-64 space-y-4" onSubmit={onLogin}>
                             <div className="flex flex-col">
                                 <label htmlFor="email-address" className="font-bold text-blue-900 text-xl">Email address</label>
